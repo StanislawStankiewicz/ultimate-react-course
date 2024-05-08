@@ -142,3 +142,45 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// const { title, author, genres } = getBook(1);
+// // const primaryGenre = genres[0];
+// // const secondaryGenre = genres[1];
+
+// const [primaryGenre, secondaryGenre, ...otherGenres] = getBook(1).genres;
+// // primaryGenre;
+// // secondaryGenre;
+// // otherGenres;
+
+// const newGenres = [...getBook(1).genres, "new genre"];
+// // newGenres;
+
+// const book = getBook(1);
+
+// const updatedBook = {
+//   ...book,
+//   moviePublicationDate: "2001-12-19",
+//   pages: 1500,
+// };
+// const summary = `${title} a book`;
+
+// const getYear = (date) => date.split("-")[0];
+
+// const expression = 54 && 'dupa';
+// expression;
+
+const books = getBooks();
+
+const x = [1, 2, 3, 4, 5].map((n) => n * 2);
+
+const titles = books.map((book) => book.title);
+books;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  genres: book.genres,
+}));
+
+let sortedByPages = [...books].sort((a, b) => a.pages - b.pages);
+sortedByPages = sortedByPages.map((book) => book.pages);
