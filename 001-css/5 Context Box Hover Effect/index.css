@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  color: #111;
+  background-color: #fff;
+  padding: 4rem 5rem;
+}
+
+.page-width {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.content-boxes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .content-boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .page-width {
+    max-width: none;
+  }
+  .content-boxes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.content-box {
+  position: relative;
+  padding: 2rem;
+  padding-bottom: 5rem;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.content-box__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-box__title {
+  position: relative;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.content-box__title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  height: 1px;
+  background-color: #d7dce1;
+}
+
+.content-box__cta {
+  position: absolute;
+  bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.content-box__cta a {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: currentColor;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  padding: 0.65rem 1rem;
+}
+
+.content-box__cta a:hover,
+.content-box__cta a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 0;
+}
+
+.content-box__overlay {
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+      rgba(13, 62, 160, 0.8) 15%,
+      rgba(210, 157, 50, 1) 100%
+    ),
+    url("https://images.unsplash.com/photo-1570129477492-45c003edd2be");
+  background-size: cover;
+  transform: translateY(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+.content-box:hover .content-box__overlay,
+.content-box:focus-within .content-box__overlay {
+  transform: translateY(0);
+}
+
+:is(
+    .content-box__title,
+    .content-box__cta a,
+    .content-box__icon,
+    .content-box__desc
+  ) {
+  transition: color 0.5s ease;
+}
+
+:is(.content-box:hover, .content-box:focus-within)
+  :is(
+    .content-box__title,
+    .content-box__cta a,
+    .content-box__icon,
+    .content-box__desc
+  ) {
+  color: #fff;
+}
