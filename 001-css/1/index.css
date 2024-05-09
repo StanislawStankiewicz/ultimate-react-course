@@ -1,0 +1,19 @@
+body {
+  background-color: black;
+}
+h1 {
+  color: white;
+  font-family: "press Start 2P", sans-serif;
+}
+p {
+  color: rgb(101, 255, 96);
+  font-family: "consolas", sans-serif;
+}
+
+.odd {
+  background-color: #333;
+}
+
+.even {
+  background-color: #444;
+}
